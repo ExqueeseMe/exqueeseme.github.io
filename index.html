@@ -1,11 +1,135 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Tortilla SMP</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Minecraft Server Players</title>
+    <style>
+        /* (Same CSS as before -  I've kept it for completeness) */
+        body { font-family: sans-serif; background-color: #f0f0f0; margin: 0; padding: 0; }
+        .container { max-width: 960px; margin: 20px auto; padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+        h1 { text-align: center; color: #333; margin-bottom: 30px; }
+        .player-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .player-card { background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 15px; text-align: center; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); transition: transform 0.2s ease-in-out; }
+        .player-card:hover { transform: translateY(-5px); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); }
+        .player-image { width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 10px; display: block; border: 3px solid #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); }
+        .player-name { font-weight: bold; color: #333; margin-bottom: 5px; }
+        .player-info { color: #666; font-size: 0.9em; }
+        @media (max-width: 768px) { .player-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); } }
+        @media (max-width: 480px) { .player-grid { grid-template-columns: 1fr; } }
+        /* Style for the link - remove default underline */
+        .player-card a {
+            text-decoration: none; /* Remove underline */
+            color: inherit; /* Inherit color from parent */
+            display: block;  /* Make the whole card clickable */
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Tortilla SMP Player List</h1>
 
-<h1>Tortilla SMP Official Website (WIP)</h1>
-<p>will be finished once i learn html 😭</p>
+        <style>
+        .container {
+            text-align: center;
+        }
+        img {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://cdn.discordapp.com/attachments/1230997535946969170/1231300873750319194/TORTILLA-SMP-4-20-2024_1.png?ex=67a647cc&is=67a4f64c&hm=f25f37479c94e96884f990dea55749edd2cc9cf2dbf2df2899567d8fd08a20b3&" alt="TortillaSMP Icon">
+    </div>
+        <div class="player-grid">
+            <div class="player-card">
+                <a href="player1.html">  <img src="https://mc-heads.net/avatar/ExqueeseMe" alt="ExqueeseMe" class="player-image">
+                    <div class="player-name">ExqueeseMe</div>
+                    <div class="player-info">Server Owner</div>
+                </a>
+            </div>
+
+            <div class="player-card">
+                <a href="player2.html"> <img src="https://mc-heads.net/avatar/mateolopez2007" alt="mateolopez2007" class="player-image">
+                    <div class="player-name">mateolopez2007</div>
+                    <div class="player-info">Speedrunner</div>
+                </a>
+            </div>
+
+            <div class="player-card">
+                <a href="player3.html">
+                    <img src="https://mc-heads.net/avatar/Alex2" alt="MarioFelino2010" class="player-image">
+                    <div class="player-name">MarioFelino2010</div>
+                    <div class="player-info">Troublemaker</div>
+                </a>
+            </div>
+
+            <div class="player-card">
+                <a href="player4.html">
+                    <img src="https://mc-heads.net/avatar/Theoreoone" alt="Theoreoone" class="player-image">
+                    <div class="player-name">Theoreoone</div>
+                    <div class="player-info">Resource Gatherer</div>
+                </a>
+            </div>
+
+            <div class="player-card">
+                <a href="player5.html">
+                    <img src="https://mc-heads.net/avatar/MinerHunter504" alt="MinerHunter504" class="player-image">
+                    <div class="player-name">MinerHunter504</div>
+                    <div class="player-info">President of The UST</div>
+                </a>
+            </div>
+            
+            <div class="player-card">
+                <a href="player6.html">
+                    <img src="https://mc-heads.net/avatar/FireManTony1" alt="FireManTony1" class="player-image">
+                    <div class="player-name">FireManTony1</div>
+                    <div class="player-info">Explorer</div>
+                </a>
+            </div>
+            
+            <div class="player-card">
+                <a href="player7.html">
+                    <img src="https://mc-heads.net/avatar/FuzzieFaun" alt="FuzzieFaun" class="player-image">
+                    <div class="player-name">FuzzieFaun</div>
+                    <div class="player-info">Architect</div>
+                </a>
+            </div>
+            
+            <div class="player-card">
+                <a href="player8.html">
+                    <img src="https://mc-heads.net/avatar/Mexican" alt="Santiago" class="player-image">
+                    <div class="player-name">Santiago</div>
+                    <div class="player-info">Speedrunner #2</div>
+                </a>
+            </div>
+            
+            <div class="player-card">
+                <a href="player9.html">
+                    <img src="https://mc-heads.net/avatar/notRex88808" alt="notRex88808" class="player-image">
+                    <div class="player-name">notRex88808</div>
+                    <div class="player-info">He exists</div>
+                </a>
+            </div>
+            
+            <div class="player-card">
+                <a href="player10.html">
+                    <img src="https://mc-heads.net/avatar/jay346" alt="jay346" class="player-image">
+                    <div class="player-name">jay346</div>
+                    <div class="player-info">She also exists</div>
+                </a>
+            </div>
+            
+	    <div class="player-card">
+                <a href="player11.html">
+                    <img src="https://mc-heads.net/avatar/ratchet" alt="rachet" class="player-image">
+                    <div class="player-name">ratchet
+</div>
+                    <div class="player-info">Farmer</div>
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
