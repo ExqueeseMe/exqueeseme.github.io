@@ -3,132 +3,264 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Minecraft Server Players</title>
+    <title>TortillaSMP | Players</title>
     <style>
-        /* (Same CSS as before -  I've kept it for completeness) */
-        body { font-family: sans-serif; background-color: #f0f0f0; margin: 0; padding: 0; }
-        .container { max-width: 960px; margin: 20px auto; padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
-        h1 { text-align: center; color: #333; margin-bottom: 30px; }
-        .player-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
-        .player-card { background-color: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; padding: 15px; text-align: center; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); transition: transform 0.2s ease-in-out; }
-        .player-card:hover { transform: translateY(-5px); box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); }
-        .player-image { width: 100px; height: 100px; border-radius: 50%; margin: 0 auto 10px; display: block; border: 3px solid #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); }
-        .player-name { font-weight: bold; color: #333; margin-bottom: 5px; }
-        .player-info { color: #666; font-size: 0.9em; }
-        @media (max-width: 768px) { .player-grid { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); } }
-        @media (max-width: 480px) { .player-grid { grid-template-columns: 1fr; } }
-        /* Style for the link - remove default underline */
-        .player-card a {
-            text-decoration: none; /* Remove underline */
-            color: inherit; /* Inherit color from parent */
-            display: block;  /* Make the whole card clickable */
+        :root {
+            --primary: #6C5CE7;
+            --secondary: #A8A5E6;
+            --accent: #FFD700;
+            --background: #0F0F1C;
         }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Tortilla SMP Player List</h1>
 
-        <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: var(--background);
+            color: white;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
         .container {
-            text-align: center;
+            max-width: 1400px;
+            margin: 0 auto;
         }
-        img {
+        
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            border-radius: 12px;
+            width: 200px;
+            height: 200px;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 2rem 0;
+            font-size: 2.5rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 600;
+        }
+
+        .player-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+
+        .player-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.25s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+
+        .player-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 24px rgba(108,92,231,0.15);
+            border-color: rgba(108,92,231,0.3);
+        }
+
+        .player-content {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .player-skin {
+            width: 80px;
+            height: 80px;
+            image-rendering: pixelated;
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.25s ease;
+        }
+
+        .player-card:hover .player-skin {
+            transform: scale(1.05);
+        }
+
+        .player-info {
+            text-align: left;
+        }
+
+        .username {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+            color: white;
+            transition: color 0.25s ease;
+        }
+
+        .player-card:hover .username {
+            color: var(--primary);
+        }
+
+        .role {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            background: rgba(108,92,231,0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
             display: inline-block;
+            border: 1px solid rgba(108,92,231,0.2);
+            transition: all 0.25s ease;
+        }
+
+        .player-card:hover .role {
+            background: rgba(108,92,231,0.2);
+            border-color: rgba(108,92,231,0.4);
+        }
+
+        @media (max-width: 768px) {
+            .player-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <img src="https://cdn.discordapp.com/attachments/1230997535946969170/1231300873750319194/TORTILLA-SMP-4-20-2024_1.png?ex=67a647cc&is=67a4f64c&hm=f25f37479c94e96884f990dea55749edd2cc9cf2dbf2df2899567d8fd08a20b3&" alt="TortillaSMP Icon">
-    </div>
-        <div class="player-grid">
-            <div class="player-card">
-                <a href="./player1">  <img src="https://mc-heads.net/avatar/ExqueeseMe" alt="ExqueeseMe" class="player-image">
-                    <div class="player-name">ExqueeseMe</div>
-                    <div class="player-info">Server Owner</div>
-                </a>
-            </div>
+        <h1>TortillaSMP Members!</h1>
+        
+           <div class="container">
+               <img src="https://cdn.discordapp.com/attachments/1230997535946969170/1231300873750319194/TORTILLA-SMP-4-20-2024_1.png?ex=67a647cc&is=67a4f64c&hm=f25f37479c94e96884f990dea55749edd2cc9cf2dbf2df2899567d8fd08a20b3&" alt="TortillaSMP Icon" class="center">
+          </div>
+       
+       <div class="player-grid">
+            <!-- Player 1 -->
+            <a href="exqueeseme" class="player-card">
+                <div class="player-content">
+                    <img src="https://minotar.net/helm/ExqueeseMe/100.png" alt="ExqueeseMe" class="player-skin">
+                    <div class="player-info">
+                        <div class="username">ExqueeseMe</div>
+                        <div class="role">Owner</div>
+                    </div>
+                </div>
+            </a>
 
-            <div class="player-card">
-                <a href="./player2"> <img src="https://mc-heads.net/avatar/mateolopez2007" alt="mateolopez2007" class="player-image">
-                    <div class="player-name">mateolopez2007</div>
-                    <div class="player-info">Speedrunner</div>
-                </a>
-            </div>
+            <!-- Player 2 -->
+            <a href="mateolopez2007" class="player-card">
+                <div class="player-content">
+                    <img src="https://minotar.net/helm/mateolopez2007/100.png" alt="mateolopez2007" class="player-skin">
+                    <div class="player-info">
+                        <div class="username">mateolopez2007</div>
+                        <div class="role">Speedrunner</div>
+                    </div>
+                </div>
+            </a>
 
-            <div class="player-card">
-                <a href="./player3">
-                    <img src="https://mc-heads.net/avatar/Alex2" alt="MarioFelino2010" class="player-image">
-                    <div class="player-name">MarioFelino2010</div>
-                    <div class="player-info">Troublemaker</div>
-                </a>
-            </div>
-
-            <div class="player-card">
-                <a href="./player4">
-                    <img src="https://mc-heads.net/avatar/Theoreoone" alt="Theoreoone" class="player-image">
-                    <div class="player-name">Theoreoone</div>
-                    <div class="player-info">Resource Gatherer</div>
-                </a>
-            </div>
-
-            <div class="player-card">
-                <a href="./player5">
-                    <img src="https://mc-heads.net/avatar/MinerHunter504" alt="MinerHunter504" class="player-image">
-                    <div class="player-name">MinerHunter504</div>
-                    <div class="player-info">President of The UST</div>
-                </a>
-            </div>
+            <a href="mariofelino2010" class="player-card">
+                <div class="player-content">
+                    <img src="https://minotar.net/helm/alex2/100.png" alt="MarioFelino2010" class="player-skin">
+                    <div class="player-info">
+                        <div class="username">MarioFelino2010</div>
+                        <div class="role">Prankster</div>
+                    </div>
+                </div>
+            </a>
             
-            <div class="player-card">
-                <a href="./player6">
-                    <img src="https://mc-heads.net/avatar/FireManTony1" alt="FireManTony1" class="player-image">
-                    <div class="player-name">FireManTony1</div>
-                    <div class="player-info">Explorer</div>
-                </a>
-            </div>
+            <a href="theoreoone" class="player-card">
+                <div class="player-content">
+                    <img src="https://minotar.net/helm/theoreoone/100.png" alt="Theoreoone" class="player-skin">
+                    <div class="player-info">
+                        <div class="username">Theoreoone</div>
+                        <div class="role">Resource Gatherer</div>
+                    </div>
+                </div>
+            </a>
+      
+            <a href="minerhunter504" class="player-card">
+                <div class="player-content">
+                    <img src="https://minotar.net/helm/MinerHunter504/100.png" alt="MinerHunter504" class="player-skin">
+                    <div class="player-info">
+                        <div class="username">MinerHunter504</div>
+                        <div class="role">President of The UST</div>
+                    </div>
+                </div>
+            </a>
             
-            <div class="player-card">
-                <a href="./player7">
-                    <img src="https://mc-heads.net/avatar/FuzzieFaun" alt="FuzzieFaun" class="player-image">
-                    <div class="player-name">FuzzieFaun</div>
-                    <div class="player-info">Architect</div>
-                </a>
-            </div>
+            <a href="firemantony1" class="player-card">
+                <div class="player-content">
+                    <img src="https://minotar.net/helm/FireManTony1/100.png" alt="FireManTony1" class="player-skin">
+                    <div class="player-info">
+                        <div class="username">FireManTony1</div>
+                        <div class="role">Explorer</div>
+                    </div>
+                </div>
+            </a>
             
-            <div class="player-card">
-                <a href="./player8">
-                    <img src="https://mc-heads.net/avatar/Mexican" alt="Santiago" class="player-image">
-                    <div class="player-name">Santiago</div>
-                    <div class="player-info">Speedrunner #2</div>
-                </a>
-            </div>
+            <a href="fuzziefaun" class="player-card">
+                <div class="player-content">
+                    <img src="https://minotar.net/helm/fuzziefaun/100.png" alt="FuzzieFaun" class="player-skin">
+                    <div class="player-info">
+                        <div class="username">FuzzieFaun</div>
+                        <div class="role">Builder</div>
+                    </div>
+                </div>
+            </a>
             
-            <div class="player-card">
-                <a href="./player9">
-                    <img src="https://mc-heads.net/avatar/notRex88808" alt="notRex88808" class="player-image">
-                    <div class="player-name">notRex88808</div>
-                    <div class="player-info">He exists</div>
-                </a>
-            </div>
+            <a href="santiago" class="player-card">
+                <div class="player-content">
+                    <img src="https://minotar.net/helm/mexican/100.png" alt="Santiago" class="player-skin">
+                    <div class="player-info">
+                        <div class="username">Santiago</div>
+                        <div class="role">Disconnector</div>
+                    </div>
+                </div>
+            </a>
             
-            <div class="player-card">
-                <a href="./player10">
-                    <img src="https://mc-heads.net/avatar/jay346" alt="jay346" class="player-image">
-                    <div class="player-name">jay346</div>
-                    <div class="player-info">She also exists</div>
-                </a>
-            </div>
+            <a href="notrex88808" class="player-card">
+                <div class="player-content">
+                    <img src="https://minotar.net/helm/notrex88808/100.png" alt="notRex88808" class="player-skin">
+                    <div class="player-info">
+                        <div class="username">notRex88808</div>
+                        <div class="role">He Exists</div>
+                    </div>
+                </div>
+            </a>
             
-	    <div class="player-card">
-                <a href="./player11">
-                    <img src="https://mc-heads.net/avatar/ratchet" alt="rachet" class="player-image">
-                    <div class="player-name">ratchet
-</div>
-                    <div class="player-info">Farmer</div>
-                </a>
-            </div>
+            <a href="jay346" class="player-card">
+                <div class="player-content">
+                    <img src="https://minotar.net/helm/jay346/100.png" alt="jay346" class="player-skin">
+                    <div class="player-info">
+                        <div class="username">jay346</div>
+                        <div class="role">She Also Exists</div>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="ratchet" class="player-card">
+                <div class="player-content">
+                    <img src="https://minotar.net/helm/ratchet/100.png" alt="ratchet" class="player-skin">
+                    <div class="player-info">
+                        <div class="username">ratchet</div>
+                        <div class="role">Farmer</div>
+                    </div>
+                </div>
+            </a>
+           
         </div>
     </div>
 </body>
